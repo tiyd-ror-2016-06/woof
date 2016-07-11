@@ -6,6 +6,10 @@ class RuleForm
   validates :pattern, presence: true, length: { maximum: 20 }
   validate :strategies_all_exist
 
+  def model_name
+    ActiveModel::Name.new Rule
+  end
+
   def save
     if valid?
       strategy_names.each do |name|

@@ -15,6 +15,6 @@ class RulesController < ApplicationController
   private
 
   def rule_params
-    params.require(:rule_form).permit(:pattern, :strategies)
+    params.require(:rule).permit(:pattern, :strategies)
   end
 end

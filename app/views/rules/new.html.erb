@@ -1,6 +1,6 @@
 <h1>Add Rule</h1>
 
-<%= bootstrap_form_for @rule, url: rules_path do |f| %>
+<%= bootstrap_form_for @rule do |f| %>
   <%= f.text_field :pattern %>
   <%= f.text_area :strategies %>
   <%= f.submit %>
