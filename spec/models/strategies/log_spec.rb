@@ -13,6 +13,7 @@ describe Strategies::Log do
 
   it "writes messages to a file" do
     s = Strategies::Log.new log_file
+
     s.call message
 
     expect(File.read log_file).to include "[2012/02/12 12:41:32] someone - hello"
