@@ -1,0 +1,9 @@
+<%= bootstrap_form_for @user do |f| %>
+  <%= f.text_field :username %>
+
+  <% @user.phone_numbers.each_with_index do |p,i| %>
+    <%= f.phone_field  "phone_#{i}", label: "Phone" %>
+  <% end %>
+
+  <button class="btn btn-default">Save</button>
+<% end %>
