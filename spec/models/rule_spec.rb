@@ -28,9 +28,17 @@ describe Rule do
 
   it "apply all the strategies to a message" do
     rule.apply_to urgent_message
-    
+
     rule.strategies.each do |strat|
       expect(strat.history.count).to eq 1
+    end
+  end
+
+  it "does nothing for non-matches" do
+    rule.apply_to message
+
+    rule.strategies.each do |strat|
+      expect(strat.history.count).to eq 0
     end
   end
 end

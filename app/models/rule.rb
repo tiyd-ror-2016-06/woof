@@ -1,6 +1,6 @@
 class Rule
   attr_reader :pattern, :strategies
-  
+
   def initialize pattern:, strategies:
     @pattern, @strategies = pattern, strategies
   end
