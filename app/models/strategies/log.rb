@@ -10,5 +10,9 @@ module Strategies
       @file.puts "[#{ts}] #{msg.user} - #{msg.text}"
       @file.flush
     end
+
+    def history
+      File.read(@path).split("\n")
+    end
   end
 end
