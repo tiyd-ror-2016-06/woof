@@ -8,10 +8,10 @@ class RuleForm
 
   def save
     if valid?
-      strategies.split(",").each do |name|
+      strategy_names.each do |name|
         Pattern.where(
           pattern:  pattern,
-          strategy: name.strip
+          strategy: name
         ).first_or_create!
       end
     end
@@ -20,16 +20,16 @@ class RuleForm
   private
 
   def strategies_all_exist
-    bad_strategies = []
-    strategies.split(",").each do |name|
-      name = name.strip
-      unless Handlers.include?(name.to_sym)
-        bad_strategies.push name
-      end
+    bad_strategies = strategy_names.reject do |name|
+      Handlers.include?(name.to_sym)
     end
 
     if bad_strategies.any?
       errors.add :strategies, "Unrecognized strategies: #{bad_strategies.to_sentence}"
     end
+  end
+
+  def strategy_names
+    strategies.split(",").map { |w| w.strip }
   end
 end
