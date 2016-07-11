@@ -21,4 +21,8 @@ class Rule
       end
     end
   end
+
+  def to_s
+    "#{@pattern} => #{@strategies}"
+  end
 end
