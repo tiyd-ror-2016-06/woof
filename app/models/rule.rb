@@ -1,6 +1,11 @@
 class Rule
   attr_reader :pattern, :strategies
 
+  def self.build word, handlers
+    strategies = handlers.map { |sym| Handlers.fetch(sym) }
+    Rule.new pattern: word, strategies: strategies
+  end
+
   def initialize pattern:, strategies:
     @pattern, @strategies = pattern, strategies
   end

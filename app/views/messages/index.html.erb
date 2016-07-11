@@ -1,0 +1,18 @@
+<h1>Rules</h1>
+<ul>
+  <% @rules.each do |r| %>
+    <li><%= r %></li>
+  <% end %>
+</ul>
+
+<h2>Tester</h2>
+<%= form_tag messages_path do %>
+  <input type="text" name="message">
+  <button class="btn btn-default">Send</button>
+<% end %>
+
+<ul>
+  <% @messages.each do |m| %>
+    <li><%= m %></li>
+  <% end %>
+</ul>
